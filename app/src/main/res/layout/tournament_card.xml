@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="150dp"
+    card_view:cardCornerRadius="4dp"
+    card_view:cardElevation="4dp"
+    card_view:cardUseCompatPadding="true">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/tour_img"
+            android:layout_width="100dp"
+            android:layout_height="150dp"
+            android:scaleType="centerCrop" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Large Text"
+            android:textColor="@color/primaryText"
+            android:id="@+id/tour_name"
+            android:layout_toRightOf="@+id/tour_img"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"/>
+
+        <View
+            android:layout_width="wrap_content"
+            android:layout_height="1dp"
+            android:background="@color/dividerColor"
+            android:id="@+id/line"
+            android:layout_above="@+id/tour_name"
+            android:layout_toRightOf="@+id/tour_img">
+        </View>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="---***"
+            android:textColor="@color/secondaryText"
+            android:id="@+id/sport"
+            android:layout_below="@+id/tour_name"
+            android:layout_alignLeft="@+id/tour_name"
+            android:layout_alignStart="@+id/tour_name"
+            android:layout_marginTop="17dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="xxxxx"
+            android:textColor="@color/secondaryText"
+            android:id="@+id/tour_place"
+            android:layout_below="@+id/sport"
+            android:layout_alignLeft="@+id/sport"
+            android:layout_alignStart="@+id/sport" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tour_fav"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:src="@android:drawable/star_big_off" />
+
+    </RelativeLayout>
+</android.support.v7.widget.CardView>

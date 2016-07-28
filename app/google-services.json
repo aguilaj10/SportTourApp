@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "1055069258390",
+    "firebase_url": "https://sporttour-33013.firebaseio.com",
+    "project_id": "sporttour-33013",
+    "storage_bucket": "sporttour-33013.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1055069258390:android:3aba73fed84b8430",
+        "android_client_info": {
+          "package_name": "com.jsm.android.sporttour.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1055069258390-s9jbvg3fgv7hp4j3pls46f09mtm2nftl.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.jsm.android.sporttour.app",
+            "certificate_hash": "048CCAE2EB5384F6C726E6481D80C36D109C626A"
+          }
+        },
+        {
+          "client_id": "1055069258390-2adftbv45apo8ei5duuga5goohqj7t3n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAR5Xqvlzg1PvFfQlBwepFOAeAIaSYBdqM"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1055069258390-2adftbv45apo8ei5duuga5goohqj7t3n.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
