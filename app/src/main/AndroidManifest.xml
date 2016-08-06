@@ -2,13 +2,15 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.jsm.android.sporttour.app">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
-    <meta-data android:name="io.branch.sdk.BranchKey" android:value="key_live_ffm63YTVAoC7dcqHoN8htnjeAzokzeDl" />
+    <meta-data
+        android:name="io.branch.sdk.BranchKey"
+        android:value="key_live_ffm63YTVAoC7dcqHoN8htnjeAzokzeDl" />
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/sporttour_icon"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
@@ -18,14 +20,18 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
             <intent-filter>
-                <data android:scheme="sporttour" android:host="open" />
+                <data
+                    android:host="open"
+                    android:scheme="sporttour" />
+
                 <action android:name="android.intent.action.VIEW" />
+
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
             </intent-filter>
         </activity>
+        <activity android:name=".addtour.AddTourActivity"></activity>
     </application>
 
 </manifest>

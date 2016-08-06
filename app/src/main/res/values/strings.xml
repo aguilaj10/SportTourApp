@@ -33,9 +33,14 @@
     <string name="drawer_open">Open</string>
     <string name="drawer_close">Close</string>
 
+    <string name="no_null_value_allowed">Null values not allowed!</string>
+    <string name="user_no_auth">In oder to create a new tournament you have to be logged in.</string>
+    <string name="login">Log in</string>
+    <string name="cancel">Cancel</string>
+
+    <string name="google_web_client_id">AIzaSyAR5Xqvlzg1PvFfQlBwepFOAeAIaSYBdqM</string>
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-
-    <string name="no_null_value_allowed">Null values not allowed!</string>
 
 </resources>

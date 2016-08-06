@@ -26,7 +26,6 @@ import java.util.List;
  * Created by admin on 7/25/2016.
  */
 public class TournamentRepositoryImpl implements TournamentRepository {
-    private static final FirebaseAuth auth = FirebaseAuth.getInstance();
     private static final DatabaseReference mRoot = FirebaseDatabase.getInstance().getReference();
     private static final FirebaseStorage storage = FirebaseStorage.getInstance();
     private static final String TAG = TournamentRepositoryImpl.class.getName();

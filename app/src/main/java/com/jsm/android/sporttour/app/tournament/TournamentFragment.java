@@ -1,26 +1,29 @@
 package com.jsm.android.sporttour.app.tournament;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import com.bumptech.glide.Glide;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.jsm.android.sporttour.app.R;
+import com.jsm.android.sporttour.app.common.AuthDialog;
 import com.jsm.android.sporttour.app.data.Tournament;
 import com.jsm.android.sporttour.app.service.TournamentRepositoryImpl;
+import com.jsm.android.sporttour.app.util.AuthUtil;
 import com.jsm.android.sporttour.app.util.FirebaseRecyclerAdapter;
+import com.jsm.android.sporttour.app.util.StaticConstants;
 
-import java.util.Arrays;
 import java.util.List;
 
 public class TournamentFragment extends Fragment implements TournamentContract.View {
@@ -28,6 +31,7 @@ public class TournamentFragment extends Fragment implements TournamentContract.V
     private TournamentContract.UserActionListener mListener;
     private FirebaseRecyclerAdapter<Tournament, TournamentViewHolder> mTourAdapter;
     private RecyclerView recycler;
+    private FloatingActionButton mAddTour;
 
 
     public TournamentFragment() {
@@ -42,6 +46,33 @@ public class TournamentFragment extends Fragment implements TournamentContract.V
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mListener = new TournamentPresenter(TournamentRepositoryImpl.getInstance(),this);
+
+    }
+
+    class AddTourListener implements View.OnClickListener{
+
+        @Override
+        public void onClick(View view) {
+            Log.d(TAG, "onClick: Floating button clicked");
+            if(AuthUtil.isUserAuth()){
+                Log.d(TAG, "onClick: " + AuthUtil.getUser());
+            }else{
+                AuthDialog dialog = new AuthDialog();
+                dialog.show(getActivity().getFragmentManager(), TAG);
+            }
+        }
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == StaticConstants.RC_SIGN_IN) {
+            if (resultCode == getActivity().RESULT_OK) {
+                Log.d(TAG, "onActivityResult: " + data);
+            } else {
+                Log.e("Firebase -->", ""+resultCode);
+            }
+        }
     }
 
     @Override
@@ -64,9 +95,15 @@ public class TournamentFragment extends Fragment implements TournamentContract.V
         //Get the recycler view from the activity main xml file
         recycler = (RecyclerView) root.findViewById(R.id.tournament_list);
         recycler.setHasFixedSize(true);
-
         recycler.setLayoutManager(new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL,false));
 
+        mAddTour = (FloatingActionButton) root.findViewById(R.id.tour_add);
+        mAddTour.setOnClickListener(new AddTourListener());
+
+        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestIdToken(getString(R.string.google_web_client_id))
+                .requestEmail()
+                .build();
         return root;
     }
 
@@ -78,6 +115,7 @@ public class TournamentFragment extends Fragment implements TournamentContract.V
     @Override
     public void onDetach() {
         super.onDetach();
+        mListener = null;
     }
 
     @Override

@@ -9,7 +9,7 @@
     android:layout_height="190dp">
 
     <ImageView
-        android:src="@android:mipmap/sym_def_app_icon"
+        android:src="@drawable/sporttour_icon"
         android:layout_width="wrap_content"
         android:layout_gravity="center"
         android:layout_weight="1"
