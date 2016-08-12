@@ -9,6 +9,7 @@ import com.google.firebase.database.DatabaseError;
 import com.jsm.android.sporttour.app.R;
 import com.jsm.android.sporttour.app.data.Tournament;
 import com.jsm.android.sporttour.app.service.TournamentRepository;
+import com.jsm.android.sporttour.app.util.StaticConstants;
 
 import java.util.List;
 
@@ -23,7 +24,7 @@ public class TournamentPresenter implements TournamentContract.UserActionListene
     public TournamentPresenter(@NonNull TournamentRepository tournamentRepository,
                                @NonNull TournamentContract.View tournamentView) {
         this.tournamentRepository = Preconditions.checkNotNull(tournamentRepository,
-                tournamentView.getContext().getString(R.string.no_null_value_allowed));
+                StaticConstants.NULL_NOT_ALLOWED);
         this.tournamentView = tournamentView;
     }
 
@@ -61,9 +62,9 @@ public class TournamentPresenter implements TournamentContract.UserActionListene
         tournamentView.setProgressIndicator(true);
         tournamentRepository.getImage(url, vh, new TournamentRepository.LoadImageCallback() {
             @Override
-            public void onImageLoaded(byte[] image, RecyclerView.ViewHolder vh) {
+            public void onImageLoaded(byte[] image, Object vh) {
                 tournamentView.setProgressIndicator(false);
-                tournamentView.showImage(image, vh);
+                tournamentView.showImage(image, (RecyclerView.ViewHolder) vh);
             }
 
             @Override

@@ -22,7 +22,7 @@ public interface TournamentRepository {
     }
 
     interface LoadImageCallback{
-        void onImageLoaded(byte[] image, RecyclerView.ViewHolder vh);
+        void onImageLoaded(byte[] image, Object vh);
         void onErrorLoading(Exception exception);
     }
 
@@ -32,7 +32,7 @@ public interface TournamentRepository {
 
     void saveTournament(@NonNull Tournament tournament);
 
-    void getImage(String url, RecyclerView.ViewHolder vh, @NonNull LoadImageCallback callback);
+    void getImage(String url, Object vh, @NonNull LoadImageCallback callback);
 
     void refreshData();
 }

@@ -11,4 +11,6 @@ public class StaticConstants {
     public static final int RC_SIGN_IN = 1;
 
     public static final int RESULT_OK = 2;
+
+    public static final String NULL_NOT_ALLOWED = "Null value is not allowed here";
 }

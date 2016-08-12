@@ -42,11 +42,9 @@ public class MainActivity extends AppCompatActivity {
         if (null == savedInstanceState) {
             initFragment(TournamentFragment.newInstance());
         }
-        //registerDeepLink();
     }
 
     private void initFragment(Fragment notesFragment) {
-        // Add the NotesFragment to the layout
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction transaction = fragmentManager.beginTransaction();
         transaction.add(R.id.contentFrame, notesFragment);
@@ -92,7 +90,6 @@ public class MainActivity extends AppCompatActivity {
                         AuthUtil.logout();
                         drawerLayout.closeDrawer(Gravity.LEFT);
                         menuItem.setChecked(false);
-                        recreate();
                         break;
                     case R.id.exit:
                         finish();

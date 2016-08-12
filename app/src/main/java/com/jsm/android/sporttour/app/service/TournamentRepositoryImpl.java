@@ -74,7 +74,7 @@ public class TournamentRepositoryImpl implements TournamentRepository {
     }
 
     @Override
-    public void getImage(String url, final RecyclerView.ViewHolder vh,
+    public void getImage(String url, final Object vh,
                          @NonNull final LoadImageCallback callback) {
         StorageReference storageRef = storage.getReferenceFromUrl(url);
         storageRef.getBytes(StaticConstants.ONE_MEGABYTE)

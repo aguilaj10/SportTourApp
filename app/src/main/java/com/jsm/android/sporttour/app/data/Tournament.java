@@ -2,6 +2,7 @@ package com.jsm.android.sporttour.app.data;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import android.support.annotation.VisibleForTesting;
 
 /**
  * Created by admin on 7/25/2016.
@@ -17,6 +18,17 @@ public class Tournament implements Parcelable {
     public Tournament(){
 
     }
+
+    public Tournament(String latlon, String logo, String name, String place, String sport) {
+        this.latlon = latlon;
+        this.logo = logo;
+        this.name = name;
+        this.place = place;
+        this.sport = sport;
+    }
+
+
+
 
     private Tournament(Parcel in){
         this.latlon = in.readString();
