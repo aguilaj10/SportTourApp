@@ -5,6 +5,7 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 
 import com.firebase.ui.auth.util.Preconditions;
+import com.google.firebase.database.DatabaseError;
 import com.jsm.android.sporttour.app.R;
 import com.jsm.android.sporttour.app.data.Tournament;
 import com.jsm.android.sporttour.app.service.TournamentRepository;
@@ -36,6 +37,12 @@ public class TournamentPresenter implements TournamentContract.UserActionListene
                 Log.d(TAG, "onTournamentsLoaded: " + tournaments.toString());
                 tournamentView.showTournament(tournaments);
             }
+
+            @Override
+            public void onErrorLoading(DatabaseError e) {
+                Log.e(TAG, e.getDetails());
+                tournamentView.setProgressIndicator(false);
+            }
         });
     }
 
@@ -55,7 +62,13 @@ public class TournamentPresenter implements TournamentContract.UserActionListene
         tournamentRepository.getImage(url, vh, new TournamentRepository.LoadImageCallback() {
             @Override
             public void onImageLoaded(byte[] image, RecyclerView.ViewHolder vh) {
+                tournamentView.setProgressIndicator(false);
                 tournamentView.showImage(image, vh);
+            }
+
+            @Override
+            public void onErrorLoading(Exception exception) {
+                tournamentView.setProgressIndicator(false);
             }
         });
     }

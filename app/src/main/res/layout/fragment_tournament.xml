@@ -11,10 +11,10 @@
         android:id="@+id/tournament_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingBottom="@dimen/notes_activity_vertical_margin"
-        android:paddingLeft="@dimen/notes_activity_horizontal_margin"
-        android:paddingRight="@dimen/notes_activity_horizontal_margin"
-        android:paddingTop="@dimen/notes_activity_vertical_margin"
+        android:paddingBottom="@dimen/tournament_list_paddingButton"
+        android:paddingLeft="@dimen/tournament_list_paddingLeft"
+        android:paddingRight="@dimen/tournament_list_paddingRight"
+        android:paddingTop="@dimen/tournament_list_paddingTop"
         android:scrollbars="vertical" />
 
     <android.support.design.widget.FloatingActionButton
@@ -25,5 +25,5 @@
         app:layout_anchor="@id/tournament_list"
         app:layout_anchorGravity="bottom|right|end"
         android:id="@+id/tour_add"
-        android:layout_margin="@dimen/default_margin"/>
+        android:layout_margin="@dimen/tour_add_margin"/>
 </android.support.design.widget.CoordinatorLayout>

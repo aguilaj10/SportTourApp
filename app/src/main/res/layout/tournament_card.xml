@@ -2,9 +2,9 @@
 <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="150dp"
-    card_view:cardCornerRadius="4dp"
-    card_view:cardElevation="4dp"
+    android:layout_height="@dimen/card_layout_height"
+    card_view:cardCornerRadius="@dimen/card_layout_cornerRadius"
+    card_view:cardElevation="@dimen/card_layout_elevation"
     card_view:cardUseCompatPadding="true">
 
     <RelativeLayout
@@ -13,9 +13,10 @@
 
         <ImageView
             android:id="@+id/tour_img"
-            android:layout_width="100dp"
-            android:layout_height="150dp"
-            android:scaleType="centerCrop" />
+            android:layout_width="@dimen/tour_img_width"
+            android:layout_height="@dimen/tour_img_height"
+            android:scaleType="centerCrop"
+            android:src="@drawable/sports_big_icon"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -26,12 +27,12 @@
             android:id="@+id/tour_name"
             android:layout_toRightOf="@+id/tour_img"
             android:layout_alignParentTop="true"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="10dp"/>
+            android:layout_marginLeft="@dimen/tour_name_marginLeft"
+            android:layout_marginTop="@dimen/tour_name_marginTop"/>
 
         <View
             android:layout_width="wrap_content"
-            android:layout_height="1dp"
+            android:layout_height="@dimen/line_height"
             android:background="@color/dividerColor"
             android:id="@+id/line"
             android:layout_above="@+id/tour_name"
@@ -48,7 +49,7 @@
             android:layout_below="@+id/tour_name"
             android:layout_alignLeft="@+id/tour_name"
             android:layout_alignStart="@+id/tour_name"
-            android:layout_marginTop="17dp" />
+            android:layout_marginTop="@dimen/sport_marginTop" />
 
         <TextView
             android:layout_width="wrap_content"

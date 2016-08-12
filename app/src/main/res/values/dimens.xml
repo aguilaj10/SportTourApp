@@ -25,4 +25,28 @@
     <dimen name="fab_margin">16dp</dimen>
     <dimen name="default_margin">16dp</dimen>
 
+    <!-- tournament_card dimensions -->
+    <dimen name="card_layout_height">150dp</dimen>
+    <dimen name="card_layout_cornerRadius">4dp</dimen>
+    <dimen name="card_layout_elevation">4dp</dimen>
+    <dimen name="tour_img_width">100dp</dimen>
+    <dimen name="tour_img_height">150dp</dimen>
+    <dimen name="tour_name_marginLeft">10dp</dimen>
+    <dimen name="tour_name_marginTop">10dp</dimen>
+    <dimen name="line_height">1dp</dimen>
+    <dimen name="sport_marginTop">17dp</dimen>
+
+    <!-- fragment_tournament dimensions -->
+    <dimen name="tournament_list_paddingButton">8dp</dimen>
+    <dimen name="tournament_list_paddingLeft">8dp</dimen>
+    <dimen name="tournament_list_paddingRight">8dp</dimen>
+    <dimen name="tournament_list_paddingTop">8dp</dimen>
+    <dimen name="tour_add_margin">16dp</dimen>
+
+    <!-- nav_header dimensions -->
+    <dimen name="nav_header_layout_paddingTop">20dp</dimen>
+    <dimen name="nav_header_layout_paddingBottom">20dp</dimen>
+    <dimen name="nav_header_layout_height">190dp</dimen>
+    <dimen name="tv_email_textSize">18sp</dimen>
+
 </resources>

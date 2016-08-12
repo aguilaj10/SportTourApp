@@ -3,6 +3,7 @@ package com.jsm.android.sporttour.app.service;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 
+import com.google.firebase.database.DatabaseError;
 import com.jsm.android.sporttour.app.data.Tournament;
 
 import java.util.List;
@@ -13,6 +14,7 @@ import java.util.List;
 public interface TournamentRepository {
     interface LoadTournamentsCallback{
         void onTournamentsLoaded(List<Tournament> tournaments);
+        void onErrorLoading(DatabaseError e);
     }
 
     interface GetTournamentCallback{
@@ -21,6 +23,7 @@ public interface TournamentRepository {
 
     interface LoadImageCallback{
         void onImageLoaded(byte[] image, RecyclerView.ViewHolder vh);
+        void onErrorLoading(Exception exception);
     }
 
     void getTournaments(@NonNull LoadTournamentsCallback callback);

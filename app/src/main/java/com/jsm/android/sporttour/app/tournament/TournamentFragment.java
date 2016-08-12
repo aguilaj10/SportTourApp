@@ -1,5 +1,6 @@
 package com.jsm.android.sporttour.app.tournament;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -14,6 +15,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import com.bumptech.glide.Glide;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.jsm.android.sporttour.app.R;
@@ -32,6 +35,7 @@ public class TournamentFragment extends Fragment implements TournamentContract.V
     private FirebaseRecyclerAdapter<Tournament, TournamentViewHolder> mTourAdapter;
     private RecyclerView recycler;
     private FloatingActionButton mAddTour;
+    private ProgressDialog progressDialog;
 
 
     public TournamentFragment() {
@@ -47,6 +51,10 @@ public class TournamentFragment extends Fragment implements TournamentContract.V
         super.onCreate(savedInstanceState);
         mListener = new TournamentPresenter(TournamentRepositoryImpl.getInstance(),this);
 
+        progressDialog = new ProgressDialog(getContext());
+        progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+        progressDialog.setMessage(getActivity().getResources().getString(R.string.progress_dialog_loading));
+        progressDialog.setIndeterminate(true);
     }
 
     class AddTourListener implements View.OnClickListener{
@@ -120,7 +128,10 @@ public class TournamentFragment extends Fragment implements TournamentContract.V
 
     @Override
     public void setProgressIndicator(boolean active) {
-
+        if(active)
+            progressDialog.show();
+        else
+            progressDialog.hide();
     }
 
     @Override

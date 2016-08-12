@@ -58,6 +58,7 @@ public class TournamentRepositoryImpl implements TournamentRepository {
             @Override
             public void onCancelled(DatabaseError databaseError) {
                 Log.e(TAG, "onCancelled: " + databaseError.getMessage());
+                callback.onErrorLoading(databaseError);
             }
         });
     }
@@ -82,10 +83,12 @@ public class TournamentRepositoryImpl implements TournamentRepository {
                     public void onSuccess(byte[] bytes) {
                         callback.onImageLoaded(bytes, vh);
                     }
+
                 }).addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception exception) {
                         Log.wtf(TAG, "onFailure: " + exception.getMessage());
+                        callback.onErrorLoading(exception);
                     }
                 });
     }
