@@ -50,7 +50,7 @@ public class TournamentFragment extends Fragment implements TournamentContract.V
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mListener = new TournamentPresenter(TournamentRepositoryImpl.getInstance(),this);
+        mListener = new TournamentPresenter(this);
 
         progressDialog = new ProgressDialog(getContext());
         progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);

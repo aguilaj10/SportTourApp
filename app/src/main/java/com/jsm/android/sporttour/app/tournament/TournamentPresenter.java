@@ -7,19 +7,28 @@ import android.util.Log;
 import com.firebase.ui.auth.util.Preconditions;
 import com.google.firebase.database.DatabaseError;
 import com.jsm.android.sporttour.app.R;
+import com.jsm.android.sporttour.app.SportTourApp;
 import com.jsm.android.sporttour.app.data.Tournament;
 import com.jsm.android.sporttour.app.service.TournamentRepository;
 import com.jsm.android.sporttour.app.util.StaticConstants;
 
 import java.util.List;
 
+import javax.inject.Inject;
+
 /**
  * Created by admin on 7/25/2016.
  */
 public class TournamentPresenter implements TournamentContract.UserActionListener {
     private static final String TAG = TournamentPresenter.class.getSimpleName();
-    private final TournamentRepository tournamentRepository;
+    @Inject
+    TournamentRepository tournamentRepository;
     private final TournamentContract.View tournamentView;
+
+    public TournamentPresenter(@NonNull TournamentContract.View tournamentView) {
+        this.tournamentView = tournamentView;
+        injectDependencies();
+    }
 
     public TournamentPresenter(@NonNull TournamentRepository tournamentRepository,
                                @NonNull TournamentContract.View tournamentView) {
@@ -72,5 +81,10 @@ public class TournamentPresenter implements TournamentContract.UserActionListene
                 tournamentView.setProgressIndicator(false);
             }
         });
+    }
+
+    private void injectDependencies(){
+        tournamentRepository = SportTourApp.getComponent().createTournamentRepository();
+        SportTourApp.getComponent().inject(this);
     }
 }
