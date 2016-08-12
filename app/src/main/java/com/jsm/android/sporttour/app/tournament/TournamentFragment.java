@@ -20,6 +20,7 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.jsm.android.sporttour.app.R;
+import com.jsm.android.sporttour.app.addtour.AddTourActivity;
 import com.jsm.android.sporttour.app.common.AuthDialog;
 import com.jsm.android.sporttour.app.data.Tournament;
 import com.jsm.android.sporttour.app.service.TournamentRepositoryImpl;
@@ -61,9 +62,10 @@ public class TournamentFragment extends Fragment implements TournamentContract.V
 
         @Override
         public void onClick(View view) {
-            Log.d(TAG, "onClick: Floating button clicked");
             if(AuthUtil.isUserAuth()){
                 Log.d(TAG, "onClick: " + AuthUtil.getUser());
+                Intent i = new Intent(getContext(), AddTourActivity.class);
+                getActivity().startActivity(i);
             }else{
                 AuthDialog dialog = new AuthDialog();
                 dialog.show(getActivity().getFragmentManager(), TAG);
