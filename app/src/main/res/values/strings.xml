@@ -46,5 +46,6 @@
     <string name="name">Name</string>
     <string name="place">place</string>
     <string name="sport">sport</string>
+    <string name="save">save</string>
 
 </resources>

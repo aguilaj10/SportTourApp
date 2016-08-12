@@ -58,10 +58,13 @@
 
     </android.support.design.widget.TextInputLayout>
 
-    <android.support.design.widget.FloatingActionButton
-        android:src="@android:drawable/ic_input_add"
-        app:fabSize="normal"
+    <Button android:id="@+id/btn_save"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:text="@string/save"
+        android:background="@color/colorPrimary"
+        android:layout_marginTop="40dp"
+        android:textColor="@android:color/white"
+        android:layout_gravity="center_horizontal"/>
 
 </LinearLayout>
